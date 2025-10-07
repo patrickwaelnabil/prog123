@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة Python للمبتدئين | Python Course for Beginners</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; line-height: 1.6; }
+        header { background-color: #28a745; color: white; padding: 20px; text-align: center; }
+        .back-link { color: white; text-decoration: none; margin-bottom: 10px; display: inline-block; font-size: 18px; }
+        .back-link:hover { text-decoration: underline; }
+        .progress { background: #ddd; height: 20px; margin: 20px auto; border-radius: 10px; overflow: hidden; max-width: 800px; }
+        .progress-bar { background: #28a745; height: 100%; width: 20%; transition: width 0.5s; } /* 20% لـ 1/5 دروس */
+        .lesson { background: white; margin: 30px auto; padding: 30px; max-width: 900px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: box-shadow 0.3s, transform 0.3s; opacity: 0; animation: slideIn 0.5s forwards; }
+        .lesson:nth-child(odd) { animation-delay: 0.2s; }
+        .lesson:nth-child(even) { animation-delay: 0.4s; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        .lesson:hover { box-shadow: 0 6px 15px rgba(0,0,0,0.15); transform: translateY(-2px); }
+        .lesson h2 { color: #007bff; border-bottom: 3px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+        .lesson h3 { color: #28a745; }
+        code { background: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d63384; border: 1px solid #ddd; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto; border-left: 4px solid #007bff; }
+        .lesson img { max-width: 100%; height: auto; border-radius: 8px; border: 3px solid #ddd; margin: 15px 0; transition: border-color 0.3s, transform 0.3s; display: block; }
+        .lesson img:hover { border-color: #28a745; transform: scale(1.02); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
+        .image-grid img { border: 2px solid #007bff; border-radius: 6px; transition: border-color 0.3s; }
+        .image-grid img:hover { border-color: #28a745; }
+        .tips { background: #e9ecef; padding: 40px; margin: 50px auto; max-width: 900px; border-radius: 12px; }
+        .tip { display: flex; align-items: center; margin: 20px 0; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tip img { width: 50px; height: 50px; margin-left: 15px; border-radius: 50%; border: 2px solid #007bff; }
+        .language-switch { position: fixed; top: 10px; right: 10px; z-index: 1000; }
+        .language-switch button { background: #007bff; color: white; border: none; padding: 10px; margin: 5px; cursor: pointer; border-radius: 5px; transition: background 0.3s; }
+        .language-switch button:hover { background: #0056b3; }
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+        @media (max-width: 768px) { .tip { flex-direction: column; text-align: center; } .image-grid { grid-template-columns: 1fr; } }
+    </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2609071667371255"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="language-switch">
+        <button onclick="switchLanguage('ar')">العربي</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
+
+    <header>
+        <a href="home.html" class="back-link">← العودة للرئيسية</a>
+        <h1 id="course-title">دورة Python للمبتدئين من الصفر</h1>
+        <p id="course-subtitle">5 دروس مصورة مع صور توضيحية وتمارين عملية</p>
+    </header>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- درس 1: المتغيرات -->
+    <section id="lesson1" class="lesson">
+        <h2 id="l1-title">الدرس 1: ما هي المتغيرات؟</h2>
+        <p id="l1-desc">المتغيرات هي صناديق تخزن البيانات في الذاكرة. مثال: تخيل صندوقًا يحمل اسمك أو رقمك.</p>
+        <img src="python-var-cover.jpg" alt="غلاف الدرس: رسم صندوق متغير"> <!-- صورة غلاف من Pixabay -->
+        <pre><code id="l1-code">name = "أحمد"
+age = 25
+print(name)  # يطبع: أحمد</code></pre>
+        <div class="image-grid">
+            <img src="python-var-diagram.jpg" alt="رسم توضيحي للمتغيرات"> <!-- رسم بسيط من Canva -->
+            <img src="python-var-screenshot.jpg" alt="شاشة كود المتغيرات في Python"> <!-- screenshot من VS Code -->
+            <img src="python-var-before-after.jpg" alt="قبل/بعد: تغيير قيمة المتغير"> <!-- صورة مقارنة -->
+        </div>
+        <h3 id="l1-exercise">تمرين: أنشئ متغيرًا لاسمك واطبعه</h3>
+        <p id="l1-ex-desc">جرب الكود وشغله. إذا نجح، هتظهر رسالتك!</p>
+        <img src="python-var-exercise.jpg" alt="صورة تمرين المتغيرات"> <!-- صورة توضيحية للتمرين -->
+    </section>
+
+    <!-- درس 2: الدوال -->
+    <section id="lesson2" class="lesson">
+        <h2 id="l2-title">الدرس 2: الدوال (Functions)</h2>
+        <p id="l2-desc">الدوال هي كتل كود تُستدعى مرات متعددة. مثال: دالة ترحيب.</p>
+        <img src="python-func-cover.jpg" alt="غلاف: مخطط تدفق لدالة"> <!-- من Freepik -->
+        <pre><code id="l2-code">def greet(name):
+    print("مرحبا، " + name + "!")
+
+greet("أحمد")  # يطبع: مرحبا، أحمد!</code></pre>
+        <div class="image-grid">
+            <img src="python-func-flowchart.jpg" alt="مخطط تدفق الدالة"> <!-- flowchart من Canva -->
+            <img src="python-func-screenshot.jpg" alt="شاشة تشغيل الدالة">
+            <img src="python-func-error-fix.jpg" alt="تصحيح خطأ في الدالة">
+        </div>
+        <h3 id="l2-exercise">تمرين: أنشئ دالة لحساب المجموع</h3>
+        <p id="l2-ex-desc">اكتب دالة تأخذ رقمين وتطبع مجموعها.</p>
+        <img src="python-func-exercise.jpg" alt="صورة تمرين الدوال">
+    </section>
+
+    <!-- درس 3: الحلقات (Loops) -->
+    <section id="lesson3" class="lesson">
+        <h2 id="l3-title">الدرس 3: الحلقات (For و While)</h2>
+        <p id="l3-desc">الحلقات تكرر الكود. مثال: طباعة أرقام من 1 إلى 5.</p>
+        <img src="python-loop-cover.jpg" alt="غلاف: دائرة حلقة"> <!-- من Pixabay -->
+        <pre><code id="l3-code">for i in range(1, 6):
+    print(i)  # يطبع: 1 2 3 4 5
+
+# أو while
+count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+        <div class="image-grid">
+            <img src="python-loop-diagram.jpg" alt="رسم حلقة for">
+            <img src="python-loop-screenshot.jpg" alt="شاشة حلقة while">
+            <img src="python-loop-infinite-fix.jpg" alt="إصلاح حلقة لا نهائية">
+            <img src="python-loop-visual.jpg" alt="تصوير بصري للحلقة"> <!-- إضافية -->
+        </div>
+        <h3 id="l3-exercise">تمرين: حلقة لطباعة الأعداد الزوجية</h3>
+        <p id="l3-ex-desc">استخدم for لطباعة 2, 4, 6, 8, 10.</p>
+        <img src="python-loop-exercise.jpg" alt="صورة تمرين الحلقات">
+    </section>
+
+    <!-- درس 4: الشروط (If-Else) -->
+    <section id="lesson4" class="lesson">
+        <h2 id="l4-title">الدرس 4: الشروط (If-Else)</h2>
+        <p id="l4-desc">الشروط تتخذ قرارات. مثال: التحقق إذا كان العمر أكبر من 18.</p>
+        <img src="python-if-cover.jpg" alt="غلاف: شجرة شروط"> <!-- من Pexels -->
+        <pre><code id="l4-code">age = 20
+if age >= 18:
+    print("أنت بالغ")
+else:
+    print("أنت قاصر")</code></pre>
+        <div class="image-grid">
+            <img src="python-if-tree.jpg" alt="شجرة if-else">
+            <img src="python-if-screenshot.jpg" alt="شاشة شرط ناجح">
+            <img src="python-if-nested.jpg" alt="شروط متداخلة">
+        </div>
+        <h3 id="l4-exercise">تمرين: برنامج يحدد الدرجة (A/B/C)</h3>
+        <p id="l4-ex-desc">أدخل درجة واطبع التقييم.</p>
+        <img src="python-if-exercise.jpg" alt="صورة تمرين الشروط">
+    </section>
+
+    <!-- درس 5: مشروع بسيط -->
+    <section id="lesson5" class="lesson">
+        <h2 id="l5-title">الدرس 5: مشروع أول: حاسبة بسيطة</h2>
+        <p id="l5-desc">اجمع كل شيء في مشروع: حاسبة تأخذ أرقام وتعمل عمليات.</p>
+        <img src="python-project-cover.jpg" alt="غلاف: حاسبة Python"> <!-- screenshot مشروع -->
+        <pre><code id="l5-code">def calculator(a, b, op):
+    if op == '+':
+        return a + b
+    elif op == '-':
+        return a - b
+    # أضف المزيد...
+
+print(calculator(10, 5, '+'))  # يطبع: 15</code></pre>
+        <div class="image-grid">
+            <img src="python-project-diagram.jpg" alt="مخطط المشروع">
+            <img src="python-project-screenshot.jpg" alt="شاشة الحاسبة">
+            <img src="python-project-complete.jpg" alt="المشروع النهائي">
+            <img src="python-project-tips.jpg" alt="نصائح للمشروع">
+        </div>
+        <h3 id="l5-exercise">تمرين: أضف عملية الضرب والقسمة</h3>
+        <p id="l5-ex-desc">وسع الحاسبة واختبرها.</p>
+        <img src="python-project-exercise.jpg" alt="صورة تمرين المشروع">
+    </section>
+
+    <!-- قسم نصائح سريعة مع صور -->
+    <section class="tips">
+        <h2 id="tips-title">نصائح سريعة للمبتدئين في Python</h2>
+        <div class="tip">
+            <img src="tip1-icon.jpg" alt="أيقونة لمبة"> <!-- من Flaticon -->
+            <div>
+                <h3 id="tip1">ابدأ بسيطًا</h3>
+                <p id="tip1-desc">لا تحاول تعلم كل شيء مرة واحدة. ركز على المتغيرات أولًا.</p>
+            </div>
+        </div>
+        <div class="tip">
+            <img src="tip2-icon.jpg" alt="أيقونة كمبيوتر">
+            <div>
+                <h3 id="tip2">
